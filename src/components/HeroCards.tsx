@@ -14,8 +14,8 @@ import { LightBulbIcon } from "./Icons";
 import { GitHubLogoIcon } from "@radix-ui/react-icons";
 
 import mondaySvg from "../assets/monday.svg";
-import reactSvg from "../assets/react.svg";
-import mondayLogoWithText from "../assets/monday-logo-with-text.png";
+// import reactSvg from "../assets/react.svg";
+// import mondayLogoWithText from "../assets/monday-logo-with-text.png";
 import linkedinProfile from "../assets/linkedinprofile.png"
 export const HeroCards = () => {
   return (
