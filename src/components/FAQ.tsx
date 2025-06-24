@@ -14,7 +14,7 @@ interface FAQProps {
 const FAQList: FAQProps[] = [
   {
     question: "What monday.com plans are required?",
-    answer: "Pixellog apps work on Pro and Enterprise monday.com accounts.",
+    answer: "Pixel Log apps work on Pro and Enterprise monday.com accounts.",
     value: "item-1",
   },
   {

@@ -30,7 +30,7 @@ export function Footer() {
             <div className="flex items-start justify-start mb-4 max-w-72">
               <img src="https://assets.website-files.com/6458c625291a94a195e6cf3a/6458c625291a94bb99e6cf78_MapPin.svg" alt="" className="inline-block mr-3" />
               <p className="text-sm text-gray-500 sm:text-base">
-                3502 Bhuiya Road, Joypur, BD
+                3502 Bhuiya Road, Joypur, Comilla, BD
               </p>
             </div>
             <div className="flex items-start justify-start mb-4 max-w-72">
