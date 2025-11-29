@@ -1,97 +1,57 @@
-import { Badge } from "./ui/badge";
-import {
-  Card,
-  CardContent,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import image from "../assets/growth.png";
-import image3 from "../assets/reflecting.png";
-import image4 from "../assets/looking-ahead.png";
+import { Bell, DollarSign, Filter, ShieldCheck } from "lucide-react";
+import { motion } from "framer-motion";
 
-interface FeatureProps {
-  title: string;
-  description: string;
-  image: string;
-}
+import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
 
-const features: FeatureProps[] = [
+const features = [
   {
-    title: "Responsive Design",
+    title: "Instant Telegram Notifications",
     description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi nesciunt est nostrum omnis ab sapiente.",
-    image: image4,
+      "Get alerted the second a deal drops. Speed is everything when booking mistake fares.",
+    icon: Bell,
   },
   {
-    title: "Intuitive user interface",
+    title: "Deals Under $200 Round-Trip",
     description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi nesciunt est nostrum omnis ab sapiente.",
-    image: image3,
+      "We focus on the craziest deals. Europe for $250? Japan for $350? We find them.",
+    icon: DollarSign,
   },
   {
-    title: "AI-Powered insights",
+    title: "Smart Filters",
     description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi nesciunt est nostrum omnis ab sapiente.",
-    image: image,
+      "Set your home airport and preferred destinations. Don't get spammed with irrelevant deals.",
+    icon: Filter,
   },
-];
-
-const featureList: string[] = [
-  "Dark/Light theme",
-  "Reviews",
-  "Features",
-  "Pricing",
-  "Contact form",
-  "Our team",
-  "Responsive design",
-  "Newsletter",
-  "Minimalist",
+  {
+    title: "Verified Deals Only",
+    description:
+      "No ghost fares. We verify every deal before sending it out to ensure it's bookable.",
+    icon: ShieldCheck,
+  },
 ];
 
 export const Features = () => {
   return (
-    <section
-      id="features"
-      className="container py-24 sm:py-32 space-y-8"
-    >
-      <h2 className="text-3xl lg:text-4xl font-bold md:text-center">
-        Many{" "}
-        <span className="bg-gradient-to-b from-primary/60 to-primary text-transparent bg-clip-text">
-          Great Features
-        </span>
-      </h2>
-
-      <div className="flex flex-wrap md:justify-center gap-4">
-        {featureList.map((feature: string) => (
-          <div key={feature}>
-            <Badge
-              variant="secondary"
-              className="text-sm"
-            >
-              {feature}
-            </Badge>
-          </div>
-        ))}
-      </div>
-
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {features.map(({ title, description, image }: FeatureProps) => (
-          <Card key={title}>
-            <CardHeader>
-              <CardTitle>{title}</CardTitle>
-            </CardHeader>
-
-            <CardContent>{description}</CardContent>
-
-            <CardFooter>
-              <img
-                src={image}
-                alt="About feature"
-                className="w-[200px] lg:w-[300px] mx-auto"
-              />
-            </CardFooter>
-          </Card>
+    <section className="container py-12 md:py-24 lg:py-32">
+      <div className="mx-auto grid max-w-5xl gap-6 md:grid-cols-2 lg:gap-12">
+        {features.map((feature, index) => (
+          <motion.div
+            key={feature.title}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: index * 0.1 }}
+          >
+            <Card className="h-full border-none bg-muted/50 shadow-none transition-colors hover:bg-muted/80">
+              <CardHeader>
+                <feature.icon className="h-10 w-10 text-primary" />
+                <CardTitle className="mt-4 text-xl">{feature.title}</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-muted-foreground">{feature.description}</p>
+              </CardContent>
+            </Card>
+          </motion.div>
         ))}
       </div>
     </section>

@@ -1,38 +1,31 @@
+import { ArrowRight } from "lucide-react";
+import { motion } from "framer-motion";
+
 import { Button } from "./ui/button";
 
 export const Cta = () => {
   return (
-    <section
-      id="cta"
-      className="bg-muted/50 py-16 my-24 sm:my-32"
-    >
-      <div className="container lg:grid lg:grid-cols-2 place-items-center">
-        <div className="lg:col-start-1">
-          <h2 className="text-3xl md:text-4xl font-bold ">
-            All Your
-            <span className="bg-gradient-to-b from-primary/60 to-primary text-transparent bg-clip-text">
-              {" "}
-              Ideas & Concepts{" "}
-            </span>
-            In One Interface
-          </h2>
-          <p className="text-muted-foreground text-xl mt-4 mb-8 lg:mb-0">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque,
-            beatae. Ipsa tempore ipsum iste quibusdam illum ducimus eos. Quasi,
-            sed!
-          </p>
-        </div>
-
-        <div className="space-y-4 lg:col-start-2">
-          <Button className="w-full md:mr-4 md:w-auto">Request a Demo</Button>
-          <Button
-            variant="outline"
-            className="w-full md:w-auto"
-          >
-            View all features
+    <section className="container py-12 md:py-24 lg:py-32">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5 }}
+        className="mx-auto flex max-w-[58rem] flex-col items-center justify-center gap-4 text-center"
+      >
+        <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
+          Stop Overpaying for Flights
+        </h2>
+        <p className="max-w-[42rem] leading-normal text-muted-foreground sm:text-xl sm:leading-8">
+          Join the community of smart travelers who never pay full price.
+          It&apos;s free, it&apos;s fast, and it works.
+        </p>
+        <a href="https://t.me/cheap_flight_deal_bot" target="_blank" rel="noreferrer">
+          <Button size="lg" className="mt-4 h-12 px-8 text-lg">
+            Start Getting Deals Now <ArrowRight className="ml-2 h-5 w-5" />
           </Button>
-        </div>
-      </div>
+        </a>
+      </motion.div>
     </section>
   );
 };
